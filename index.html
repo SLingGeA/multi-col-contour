@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-col Contour</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      * {
+        box-sizing: border-box;
+        border: none;
+        margin: 0;
+        padding: 0;
+      }
+      .wrapper {
+        width: 1200px;
+        margin: 20px auto;
+        border: 1px solid #ccc;
+      }
+
+      .wrapper:after {
+        content: "";
+        display: block;
+        clear: both;
+        height: 0;
+      }
+
+      .wrapper .item {
+        float: left;
+        margin: 10px;
+      }
+
+      .wrapper .item .box {
+        padding: 20px;
+        background-color: #ccc;
+      }
+      .wrapper .item .box .content {
+        color: #fff;
+      }
+
+      .wrapper .item.item-one {
+        width: calc(1 / 7 * 100%);
+      }
+      .wrapper .item.item-two {
+        width: calc(2 / 7 * 100%);
+      }
+      .wrapper .item.item-three {
+        width: calc(3 / 7 * 100%);
+      }
+      .wrapper .item.item-one .content {
+        background-color: rgba(255, 0, 0, 0.5);
+        /* 假定第一列高度根据padding-top等比缩放 */
+        padding-top: 200%;
+        height: 0;
+      }
+      .wrapper .item.item-two .content {
+        background-color: rgba(0, 0, 0, 0.5);
+        /* 计算后第二列高度比例为如下 */
+        padding-top: calc(200% * 1 / 2 - 40px);
+        height: 0;
+      }
+      .wrapper .item.item-three .content {
+        background-color: rgba(0, 0, 255, 0.5);
+        /* 计算后第三列高度比例如下 */
+        padding-top: calc(200% * 1 / 3 - 40px * 4 / 3);
+        height: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="item item-one">
+        <div class="box">
+          <div class="content"></div>
+        </div>
+      </div>
+      <div class="item item-two">
+        <div class="box">
+          <div class="content"></div>
+        </div>
+      </div>
+      <div class="item item-three">
+        <div class="box">
+          <div class="content"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
